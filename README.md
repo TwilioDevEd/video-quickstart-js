@@ -4,7 +4,7 @@
 )](https://ci.appveyor.com/project/markandrus/video-quickstart-js)
 
 This application should give you a ready-made starting point for writing your
-own video apps with Twilio Video. Before we begin, we need to collect
+own video apps with Twilio Video to use on IBM's Bluemix. Before we begin, we need to collect
 all the config values we need to run the application:
 
 * Account SID: Your primary Twilio account identifier - find this [in the console here](https://www.twilio.com/console).
@@ -17,38 +17,37 @@ When you generate an API key pair at the URLs above, your API Secret will only
 be shown once - make sure to save this in a secure location, 
 or possibly your `~/.bash_profile`.
 
-## Setting Up The Application
+## Building Out The Application on Bluemix
 
-Create a configuration file for your application:
-```bash
-cp .env.template .env
+1. In IBM's Bluemix, set up a new Twilio service.
+2. Enter your Account SID and Auth Token from the Console
+3. Clone this branch of this repository
+4. Login to Bluemix on the command line (ensure you have the [CLI installed](https://console.bluemix.net/docs/starters/install_cli.html)):
 ```
-
-Edit `.env` with the configuration parameters we gathered from above.
-
-Next, we need to install our dependencies from npm:
-```bash
-npm install
+bluemix api https://api.ng.bluemix.net
+bluemix login
 ```
-
-Now we should be all set! Run the application:
-```bash
-npm start
+5. Generate a Twilio [API Key and Secret Pair](https://www.twilio.com/console/video/dev-tools/api-keys)
+5. Set them as environment variables (in the Bluemix console):
 ```
-
-Your application should now be running at [http://localhost:3000](http://localhost:3000). Just enter
-the name of the room you want to join and click on 'Join Room'. Then,
-open another tab and join the same room. Now, you should see your own
-video in both the tabs!
-
-![screenshot of chat app](https://s3.amazonaws.com/com.twilio.prod.twilio-docs/images/video2.original.png)
+TWILIO_API_KEY
+TWILIO_API_SECRET
+```
+5. Deploy the code:
+```
+bluemix app push <App Name>
+```
+6. Visit <URL of Bluemix App>
+7. Visit it on another machine (or in a new tab of the same browser, but this isn't as fun.)
+8. Join the same room
+9. Profit!
 
 ## Examples
 
 The project contains some common use-case examples for the Twilio Video JS SDK.
 
-* [Media Device Selection](http://localhost:3000/mediadevices)
-* [Local Video Snapshot](http://localhost:3000/localvideosnapshot)
+* Media Device Selection: <URL of Bluemix App>/mediadevices
+* Local Video Snapshot: <URL of Bluemix App>/localvideosnapshot
 
 ## License
 

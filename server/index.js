@@ -1,13 +1,16 @@
 'use strict';
 
-/**
- * Load Twilio configuration from .env config file - the following environment
- * variables should be set:
- * process.env.TWILIO_ACCOUNT_SID
- * process.env.TWILIO_API_KEY
- * process.env.TWILIO_API_SECRET
- */
-require('dotenv').load();
+// Retreive Twilio Credentials
+if (process.env.VCAP_SERVICES) {
+    var env = JSON.parse(process.env.VCAP_SERVICES);
+    var local_creds = env['user-provided'][0].credentials;
+    var accountSid = local_creds.accountSID;
+} else {
+    var accountSid = process.env.TWILIO_ACCOUNT_SID;
+}
+
+var apiKey = process.env.TWILIO_API_KEY;
+var apiSecret = process.env.TWILIO_API_SECRET;
 
 var fs = require('fs');
 var http = require('http');
@@ -51,9 +54,9 @@ app.get('/token', function(request, response) {
   // Create an access token which we will sign and return to the client,
   // containing the grant we just created.
   var token = new AccessToken(
-    process.env.TWILIO_ACCOUNT_SID,
-    process.env.TWILIO_API_KEY,
-    process.env.TWILIO_API_SECRET
+    accountSid,
+    apiKey,
+    apiSecret
   );
 
   // Assign the generated identity to the token.
@@ -73,6 +76,4 @@ app.get('/token', function(request, response) {
 // Create http server and run it.
 var server = http.createServer(app);
 var port = process.env.PORT || 3000;
-server.listen(port, function() {
-  console.log('Express server running on *:' + port);
-});
+app.listen(port);
