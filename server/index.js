@@ -1,16 +1,18 @@
 'use strict';
+require('dotenv').load();
 
 // Retreive Twilio Credentials
 if (process.env.VCAP_SERVICES) {
     var env = JSON.parse(process.env.VCAP_SERVICES);
     var local_creds = env['user-provided'][0].credentials;
-    var accountSid = local_creds.accountSID;
+    var accountSid = local_creds.twilio_account_sid;
+    var apiKey = local_creds.twilio_api_key;
+    var apiSecret = local_creds.twilio_api_secret;
 } else {
     var accountSid = process.env.TWILIO_ACCOUNT_SID;
+    var apiKey = process.env.TWILIO_API_KEY;
+    var apiSecret = process.env.TWILIO_API_SECRET;
 }
-
-var apiKey = process.env.TWILIO_API_KEY;
-var apiSecret = process.env.TWILIO_API_SECRET;
 
 var fs = require('fs');
 var http = require('http');

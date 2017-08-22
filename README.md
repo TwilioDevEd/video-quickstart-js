@@ -20,27 +20,22 @@ or possibly your `~/.bash_profile`.
 ## Building Out The Application on Bluemix
 
 1. In IBM's Bluemix, set up a new Twilio service.
-2. Enter your Account SID and Auth Token from the Console
-3. Clone this branch of this repository
-4. Login to Bluemix on the command line (ensure you have the [CLI installed](https://console.bluemix.net/docs/starters/install_cli.html)):
+2. Enter your Account SID and Auth Token from the Console.
+3. Enter a valid API Key and Secret Pair: [API Key and Secret Pair](https://www.twilio.com/console/video/dev-tools/api-keys)
+4. Clone this branch of this repository
+5. Login to Bluemix on the command line (ensure you have the [CLI installed](https://console.bluemix.net/docs/starters/install_cli.html)):
 ```
 bluemix api https://api.ng.bluemix.net
 bluemix login
 ```
-5. Generate a Twilio [API Key and Secret Pair](https://www.twilio.com/console/video/dev-tools/api-keys)
-5. Set them as environment variables (in the Bluemix console):
-```
-TWILIO_API_KEY
-TWILIO_API_SECRET
-```
-5. Deploy the code:
+6. Deploy the code:
 ```
 bluemix app push <App Name>
 ```
-6. Visit <URL of Bluemix App>
-7. Visit it on another machine (or in a new tab of the same browser, but this isn't as fun.)
-8. Join the same room
-9. Profit!
+7. Visit <URL of Bluemix App>
+8. Visit it on another machine (or in a new tab of the same browser, but this isn't as fun.)
+9. Join the same room
+10. Profit!
 
 ## Examples
 
