@@ -43,6 +43,7 @@ The project contains some common use-case examples for the Twilio Video JS SDK.
 
 * Media Device Selection: URL of Bluemix App/mediadevices
 * Local Video Snapshot: URL of Bluemix App/localvideosnapshot
+* Local Video Filter: URL of Bluemix App/localvideofilter
 
 ## License
 
