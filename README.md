@@ -8,8 +8,8 @@ own video apps with Twilio Video to use on IBM's Bluemix. Before we begin, we ne
 all the config values we need to run the application:
 
 * Account SID: Your primary Twilio account identifier - find this [in the console here](https://www.twilio.com/console).
-* API Key: Used to authenticate - [generate one here](https://www.twilio.com/console/video/dev-tools/api-keys).
-* API Secret: Used to authenticate - [just like the above, you'll get one here](https://www.twilio.com/console/video/dev-tools/api-keys).
+* API Key: Used to authenticate - [generate one here](https://www.twilio.com/console/runtime/api-keys).
+* API Secret: Used to authenticate - [just like the above, you'll get one here](https://www.twilio.com/console/runtime/api-keys).
 
 ## A Note on API Keys
 
@@ -43,6 +43,7 @@ The project contains some common use-case examples for the Twilio Video JS SDK.
 
 * Media Device Selection: URL of Bluemix App/mediadevices
 * Local Video Snapshot: URL of Bluemix App/localvideosnapshot
+* Local Video Filter: URL of Bluemix App/localvideofilter
 
 ## License
 
